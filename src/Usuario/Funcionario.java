@@ -1,4 +1,4 @@
-package Cadastro;
+package Usuario;
 
 public class Funcionario {
 
