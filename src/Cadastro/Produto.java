@@ -1,37 +1,29 @@
 package Cadastro;
 
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.Period;
-import static java.time.Period.between;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
+import java.sql.Date;
 
 public class Produto {
 
+   public int codProduto;
     public String nome;
     private double preçoDeCompra;
     private double taxaDeCusto;
     public double preçoDeVenda;
-    public static int códProduto = 0;
     public String destribuidor;
     public String tipo;
     public int quantidade;
-    public LocalDate dataFabricação;
-    public LocalDate dataValidade;
+    public String dataFabricaçao;
+    public Date dataValidade;
 
-    public Produto() {
-        taxaDeCusto = 0.5;
-        Produto.códProduto++;
-
+    public int getCodProduto() {
+        return codProduto;
     }
 
-    public double preçoVenda() {
-        preçoDeVenda = preçoDeCompra + (preçoDeCompra * taxaDeCusto);
-        return preçoDeVenda;
+    public void setCodProduto(int codProduto) {
+        this.codProduto = codProduto;
     }
 
-
+    
     public String getNome() {
         return nome;
     }
@@ -64,14 +56,6 @@ public class Produto {
         this.preçoDeVenda = preçoDeVenda;
     }
 
-    public int getCódProduto() {
-        return códProduto;
-    }
-
-    public void setCódProduto(int códProduto) {
-        this.códProduto = códProduto;
-    }
-
     public String getDestribuidor() {
         return destribuidor;
     }
@@ -96,30 +80,20 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    public LocalDate getDataFabricação() {
-        return dataFabricação;
+    public String getDataFabricação() {
+        return dataFabricaçao;
     }
 
-    public void setDataFabricação(LocalDate dataFabricação) {
-        this.dataFabricação = dataFabricação;
+    public void setDataFabricação(String dataFabricação) {
+        this.dataFabricaçao = dataFabricação;
     }
 
-    public LocalDate getDataValidade() {
+    public Date getDataValidade() {
         return dataValidade;
     }
 
-    public void setDataValidade(LocalDate dataValidade) {
+    public void setDataValidade(Date dataValidade) {
         this.dataValidade = dataValidade;
     }
 
-    //public void status() {
-      //  System.out.println("-----------------------------");
-        //System.out.println("Nome:" + this.nome);
-        //System.out.println("Código do Produto:" + códProduto);
-        //System.out.println("Tipo:" + this.tipo);
-        //System.out.println("preço:" + preçoDeVenda);
-        //System.out.println("Quantidade:" + this.quantidade);
-        //System.out.println("Destribuidor:" + this.destribuidor);
-
-    //}
 }
