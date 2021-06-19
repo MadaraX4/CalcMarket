@@ -5,6 +5,8 @@
  */
 package Telas;
 
+import model.dao.ProdutoDAO;
+
 /**
  *
  * @author lordt
@@ -37,6 +39,7 @@ public class ConsultarProduto extends javax.swing.JFrame {
         jTextFieldCampoQuantidade = new javax.swing.JTextField();
         jToggleButtonPesquisar = new javax.swing.JToggleButton();
         jToggleButtonEncerrarConsulta = new javax.swing.JToggleButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,8 +61,27 @@ public class ConsultarProduto extends javax.swing.JFrame {
         jLabelQuantidade.setText("Quantidade");
 
         jToggleButtonPesquisar.setText("Pesquisar");
+        jToggleButtonPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButtonPesquisarActionPerformed(evt);
+            }
+        });
 
+        jToggleButtonEncerrarConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jToggleButtonEncerrarConsulta.setText("Encerrar Consulta");
+        jToggleButtonEncerrarConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButtonEncerrarConsultaActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -92,7 +114,9 @@ public class ConsultarProduto extends javax.swing.JFrame {
                                 .addComponent(jToggleButtonPesquisar)))
                         .addGap(33, 33, 33))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(230, 230, 230)
+                .addGap(106, 106, 106)
+                .addComponent(jButton1)
+                .addGap(51, 51, 51)
                 .addComponent(jToggleButtonEncerrarConsulta)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -115,8 +139,10 @@ public class ConsultarProduto extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldCampoQuantidade)
                     .addComponent(jTextFieldCampoPreço))
-                .addGap(106, 106, 106)
-                .addComponent(jToggleButtonEncerrarConsulta)
+                .addGap(77, 77, 77)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jToggleButtonEncerrarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addGap(180, 180, 180))
         );
 
@@ -131,12 +157,31 @@ public class ConsultarProduto extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(616, 439));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldCampoPreçoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCampoPreçoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCampoPreçoActionPerformed
+
+    private void jToggleButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonPesquisarActionPerformed
+        ProdutoDAO dao = new ProdutoDAO();
+        dao.consulta(jTextFieldCampoPreço, jTextFieldCampoQuantidade, jTextFieldCampoNomeDoProduto.getText());
+
+    }//GEN-LAST:event_jToggleButtonPesquisarActionPerformed
+
+    private void jToggleButtonEncerrarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonEncerrarConsultaActionPerformed
+        jTextFieldCampoNomeDoProduto.setText("");
+        jTextFieldCampoPreço.setText("");
+        jTextFieldCampoQuantidade.setText("");
+    }//GEN-LAST:event_jToggleButtonEncerrarConsultaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Login obj = new Login();
+        obj.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,6 +220,7 @@ public class ConsultarProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabelConsultarProduto;
     private javax.swing.JLabel jLabelNomeDoProduto;
     private javax.swing.JLabel jLabelPreço;

@@ -42,38 +42,70 @@ public class Gerente extends javax.swing.JFrame {
         jLabelGerente.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabelGerente.setText("Gerente");
 
+        jButtonVenda.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButtonVenda.setText("Venda");
+        jButtonVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVendaActionPerformed(evt);
+            }
+        });
 
+        jButtonPesquisarProduto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButtonPesquisarProduto.setText("Pesquisar Produto");
+        jButtonPesquisarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPesquisarProdutoActionPerformed(evt);
+            }
+        });
 
+        jButtonCadastraProduto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButtonCadastraProduto.setText("Cadastrar Produto");
+        jButtonCadastraProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastraProdutoActionPerformed(evt);
+            }
+        });
 
+        jButtonSair.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButtonSair.setText("Sair");
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSairActionPerformed(evt);
+            }
+        });
 
+        jButtonAreaDeNotificaçao.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButtonAreaDeNotificaçao.setText("Área de Notificações");
+        jButtonAreaDeNotificaçao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAreaDeNotificaçaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(256, 256, 256)
-                .addComponent(jLabelGerente)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(135, 135, 135)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonVenda)
-                    .addComponent(jButtonCadastraProduto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonPesquisarProduto)
-                    .addComponent(jButtonAreaDeNotificaçao))
-                .addGap(117, 117, 117))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonSair)
-                .addGap(252, 252, 252))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(256, 256, 256)
+                        .addComponent(jLabelGerente))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButtonCadastraProduto)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonAreaDeNotificaçao))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButtonVenda)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonPesquisarProduto))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(246, 246, 246)
+                        .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,9 +120,9 @@ public class Gerente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCadastraProduto)
                     .addComponent(jButtonAreaDeNotificaçao))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addComponent(jButtonSair)
-                .addGap(130, 130, 130))
+                .addGap(35, 35, 35)
+                .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -104,8 +136,35 @@ public class Gerente extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(616, 439));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVendaActionPerformed
+        Venda obj = new Venda();
+        obj.setVisible(true);
+    }//GEN-LAST:event_jButtonVendaActionPerformed
+
+    private void jButtonPesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarProdutoActionPerformed
+        ConsultarProduto obj = new ConsultarProduto();
+        obj.setVisible(true);
+    }//GEN-LAST:event_jButtonPesquisarProdutoActionPerformed
+
+    private void jButtonCadastraProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastraProdutoActionPerformed
+        CadastrarProduto obj = new CadastrarProduto();
+        obj.setVisible(true);
+    }//GEN-LAST:event_jButtonCadastraProdutoActionPerformed
+
+    private void jButtonAreaDeNotificaçaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAreaDeNotificaçaoActionPerformed
+        AreaDeNotificaçao obj = new AreaDeNotificaçao();
+        obj.setVisible(true);
+    }//GEN-LAST:event_jButtonAreaDeNotificaçaoActionPerformed
+
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
+        Login obj = new Login();
+        obj.setVisible(true);
+         dispose();   
+    }//GEN-LAST:event_jButtonSairActionPerformed
 
     /**
      * @param args the command line arguments

@@ -11,15 +11,12 @@ public class Funcionario {
     private String senha;
     private int id;
 
-    public Funcionario(String nome, String telefone, String cpf, int codFuncionario, String senha, int id) {
-        this.nome = nome;
-        this.telefone = telefone;
-        this.cpf = cpf;
-        this.codFuncionario = codFuncionario;
-        this.senha = senha;
-        this.id = id;
+    public Funcionario() {
+      
     }
 
+   
+  
     public int getId() {
         return id;
     }

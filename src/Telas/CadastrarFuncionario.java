@@ -86,6 +86,11 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         });
 
         jButtonSair.setText("Sair");
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -194,6 +199,12 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
     private void jTextFieldCampoIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCampoIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCampoIdActionPerformed
+
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
+        Login obj = new Login();
+        obj.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonSairActionPerformed
 
     /**
      * @param args the command line arguments

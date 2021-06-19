@@ -24,12 +24,13 @@ public class CadastrarProduto extends javax.swing.JFrame {
     public CadastrarProduto() {
         initComponents();
     }
-    public String dataParaMysql(String  data){
-    String dia = jTextFieldCampoDataValidade.getText().substring(0, 2);
-    String mes = jTextFieldCampoDataValidade.getText().substring(3, 5);
-    String ano = jTextFieldCampoDataValidade.getText().substring(6);
-    String dataParaMysql = dia+"-"+mes+"-"+ano;
-    return dataParaMysql;
+
+    public Date dataMysql(String data) {
+        String[] dataFormatada = jFormattedTextFieldCampoDataValidade.getText().split("/");
+
+        Date dataMysql = new Date(Integer.parseInt(dataFormatada[0]), Integer.parseInt(dataFormatada[1]), Integer.parseInt(dataFormatada[2]));
+
+        return dataMysql;
     }
 
     /**
@@ -59,7 +60,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
         jLabelDestribuidor = new javax.swing.JLabel();
         jTextFieldCampoDestribuidor = new javax.swing.JTextField();
         jTextFieldCampoDataFabricaçao = new javax.swing.JTextField();
-        jTextFieldCampoDataValidade = new javax.swing.JTextField();
+        jFormattedTextFieldCampoDataValidade = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -92,8 +93,15 @@ public class CadastrarProduto extends javax.swing.JFrame {
         jButtonAlterarProduto.setText("Alterar Produto");
 
         jButtonSair.setText("Sair");
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSairActionPerformed(evt);
+            }
+        });
 
         jLabelDestribuidor.setText("Destribuidor");
+
+        jFormattedTextFieldCampoDataValidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,21 +122,18 @@ public class CadastrarProduto extends javax.swing.JFrame {
                                     .addComponent(jTextFieldCampoDataFabricaçao))
                                 .addGap(53, 53, 53)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabelCadastroDeProdutos)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(jTextFieldCampoPreçoDeCompra, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabelPreçoDeCompra, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addGap(16, 16, 16))
+                                    .addComponent(jLabelCadastroDeProdutos)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jTextFieldCampoPreçoDeCompra, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelPreçoDeCompra, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabelDataDeValidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jTextFieldCampoDataValidade))
-                                        .addGap(29, 29, 29)
+                                            .addComponent(jFormattedTextFieldCampoDataValidade))
+                                        .addGap(33, 33, 33)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabelDestribuidor)
-                                            .addComponent(jTextFieldCampoDestribuidor)))))
+                                            .addComponent(jTextFieldCampoDestribuidor, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addComponent(jTextFieldCampoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldCampoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -162,7 +167,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldCampoDestribuidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldCampoDataFabricaçao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCampoDataValidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextFieldCampoDataValidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelQuantidade)
@@ -203,16 +208,22 @@ public class CadastrarProduto extends javax.swing.JFrame {
         p.setNome(jTextFieldCampoNome.getText());
         p.setTipo(jTextFieldCampoTipo.getText());
         p.setDataFabricação(jTextFieldCampoDataFabricaçao.getText());
-        p.setDataValidade(dataParaMysql(jTextFieldCampoDataValidade.getText())); 
+        p.setDataValidade(dataMysql(jFormattedTextFieldCampoDataValidade.getText()));
         p.setDestribuidor(jTextFieldCampoDestribuidor.getText());
         p.setQuantidade(Integer.parseInt(jTextFieldCampoQuantidade.getText()));
         p.setPreçoDeCompra(Double.parseDouble(jTextFieldCampoPreçoDeCompra.getText()));
 
         ProdutoDAO dao = new ProdutoDAO();
         dao.create(p);
-        JOptionPane.showMessageDialog(null, "Produto " + jTextFieldCampoNome.getText() + "Cadastrado com sucesso!");
+        JOptionPane.showMessageDialog(null, "Produto " + jTextFieldCampoNome.getText() + " Cadastrado com sucesso!");
 
     }//GEN-LAST:event_jButtonCadastrarProdutoActionPerformed
+
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
+        Login obj = new Login();
+        obj.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,6 +264,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAlterarProduto;
     private javax.swing.JButton jButtonCadastrarProduto;
     private javax.swing.JButton jButtonSair;
+    private javax.swing.JFormattedTextField jFormattedTextFieldCampoDataValidade;
     private javax.swing.JLabel jLabelCadastroDeProdutos;
     private javax.swing.JLabel jLabelDataDeFabricação;
     private javax.swing.JLabel jLabelDataDeValidade;
@@ -263,7 +275,6 @@ public class CadastrarProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTipo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextFieldCampoDataFabricaçao;
-    private javax.swing.JTextField jTextFieldCampoDataValidade;
     private javax.swing.JTextField jTextFieldCampoDestribuidor;
     private javax.swing.JTextField jTextFieldCampoNome;
     private javax.swing.JTextField jTextFieldCampoPreçoDeCompra;

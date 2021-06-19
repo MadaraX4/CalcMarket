@@ -4,16 +4,16 @@ import java.sql.Date;
 
 public class Produto {
 
-   public int codProduto;
-    public String nome;
+    private int codProduto;
+    private String nome;
     private double preçoDeCompra;
     private double taxaDeCusto;
-    public double preçoDeVenda;
-    public String destribuidor;
-    public String tipo;
-    public int quantidade;
-    public String dataFabricaçao;
-    public Date dataValidade;
+    private double preçoDeVenda;
+    private String destribuidor;
+    private String tipo;
+    private int quantidade;
+    private String dataFabricaçao;
+    private Date dataValidade;
 
     public int getCodProduto() {
         return codProduto;
@@ -23,7 +23,6 @@ public class Produto {
         this.codProduto = codProduto;
     }
 
-    
     public String getNome() {
         return nome;
     }

@@ -5,17 +5,31 @@
  */
 package Telas;
 
+import Cadastro.Alerta;
+import Cadastro.NotificaçãoDeData;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author lordt
  */
-public class AreaDeNotificação extends javax.swing.JFrame {
+public class AreaDeNotificaçao extends javax.swing.JFrame {
 
     /**
      * Creates new form AreaDeNotificação
      */
-    public AreaDeNotificação() {
+    public AreaDeNotificaçao() {
         initComponents();
+       // try {
+            //new NotificaçãoDeData().notificação();
+       // } catch (ParseException ex) {
+           // Logger.getLogger(AreaDeNotificaçao.class.getName()).log(Level.SEVERE, null, ex);
+       // }
+        //String alerta1 = Alerta.avisar();
+        //jTextAreaCampoNotifiçoes.setText(alerta1);
+      
     }
 
     /**
@@ -92,13 +106,15 @@ public class AreaDeNotificação extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(616, 439));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -112,20 +128,21 @@ public class AreaDeNotificação extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AreaDeNotificação.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AreaDeNotificaçao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AreaDeNotificação.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AreaDeNotificaçao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AreaDeNotificação.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AreaDeNotificaçao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AreaDeNotificação.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AreaDeNotificaçao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AreaDeNotificação().setVisible(true);
+                new AreaDeNotificaçao().setVisible(true);
             }
         });
     }

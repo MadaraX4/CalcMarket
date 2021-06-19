@@ -4,7 +4,9 @@ import Conexao.ConexaoBanco;
 import Cadastro.Funcionario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class UsuarioDAO {
 
@@ -31,6 +33,23 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
 
+        }
+    }
+
+    public ResultSet autenticaçao(Funcionario flogin) {
+        
+        try {
+            String sql="Select * from cadastrofuncionario where Id = ? and Senha = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, flogin.getId());
+            stmt.setString(2, flogin.getSenha());
+            
+            ResultSet rs = stmt.executeQuery();
+            return rs;
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Usuario: "+ e);
+            return null;
         }
     }
 

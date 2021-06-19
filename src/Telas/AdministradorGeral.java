@@ -43,17 +43,53 @@ public class AdministradorGeral extends javax.swing.JFrame {
         jLabelAdministradorGeral.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabelAdministradorGeral.setText("Administrador Geral");
 
+        jButtonVender.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonVender.setText("Vender");
+        jButtonVender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVenderActionPerformed(evt);
+            }
+        });
 
+        jButtonPesquisarProduto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonPesquisarProduto.setText("Pesquisar Produto");
+        jButtonPesquisarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPesquisarProdutoActionPerformed(evt);
+            }
+        });
 
+        jButtonCadastrarProduto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonCadastrarProduto.setText("Cadastrar Produto");
+        jButtonCadastrarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarProdutoActionPerformed(evt);
+            }
+        });
 
+        jButtonAreaDeNotificação.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonAreaDeNotificação.setText("Área de Notificação");
+        jButtonAreaDeNotificação.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAreaDeNotificaçãoActionPerformed(evt);
+            }
+        });
 
+        jButtonCadastrarFuncionario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonCadastrarFuncionario.setText("Cadastrar Funcionário");
+        jButtonCadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarFuncionarioActionPerformed(evt);
+            }
+        });
 
+        jButtonSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButtonSair.setText("Sair");
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -68,21 +104,17 @@ public class AdministradorGeral extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonCadastrarFuncionario)
                     .addComponent(jButtonCadastrarProduto)
-                    .addComponent(jButtonVender))
+                    .addComponent(jButtonVender, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButtonPesquisarProduto)
-                                .addGap(113, 113, 113))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButtonAreaDeNotificação)
-                                .addContainerGap())))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(jButtonSair)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButtonPesquisarProduto)
+                        .addGap(113, 113, 113))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonAreaDeNotificação)
+                            .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(105, 105, 105))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,18 +122,18 @@ public class AdministradorGeral extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabelAdministradorGeral)
                 .addGap(63, 63, 63)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonVender)
-                    .addComponent(jButtonPesquisarProduto))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCadastrarProduto)
-                    .addComponent(jButtonAreaDeNotificação))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCadastrarFuncionario)
-                    .addComponent(jButtonSair))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonVender, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                    .addComponent(jButtonPesquisarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonAreaDeNotificação, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                    .addComponent(jButtonCadastrarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCadastrarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -115,8 +147,40 @@ public class AdministradorGeral extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(616, 439));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVenderActionPerformed
+         Venda obj = new Venda();
+        obj.setVisible(true);
+    }//GEN-LAST:event_jButtonVenderActionPerformed
+
+    private void jButtonPesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarProdutoActionPerformed
+      ConsultarProduto obj = new ConsultarProduto();
+        obj.setVisible(true);
+    }//GEN-LAST:event_jButtonPesquisarProdutoActionPerformed
+
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
+        Login obj = new Login();
+        obj.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonSairActionPerformed
+
+    private void jButtonCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarProdutoActionPerformed
+        CadastrarProduto obj = new   CadastrarProduto();
+        obj.setVisible(true);
+    }//GEN-LAST:event_jButtonCadastrarProdutoActionPerformed
+
+    private void jButtonAreaDeNotificaçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAreaDeNotificaçãoActionPerformed
+       AreaDeNotificaçao obj = new AreaDeNotificaçao();
+       obj.setVisible(true);
+    }//GEN-LAST:event_jButtonAreaDeNotificaçãoActionPerformed
+
+    private void jButtonCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarFuncionarioActionPerformed
+       CadastrarFuncionario obj = new CadastrarFuncionario();
+       obj.setVisible(true);
+    }//GEN-LAST:event_jButtonCadastrarFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments

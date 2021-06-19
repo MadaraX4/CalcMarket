@@ -5,6 +5,8 @@
  */
 package Telas;
 
+import model.dao.ProdutoDAO;
+
 /**
  *
  * @author lordt
@@ -47,13 +49,33 @@ public class Venda extends javax.swing.JFrame {
 
         jLabelNomeDoProduto.setText("Nome do Produto");
 
+        jTextFieldCampoNomeDoProduto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldCampoNomeDoProdutoKeyPressed(evt);
+            }
+        });
+
         jLabelPreço.setText("Preço");
 
         jLabelPreçoTotal.setText("Preço Total");
 
-        jToggleButtonVender.setText("Vender");
+        jTextFieldCampoPreçoTotal.setText("0");
 
+        jToggleButtonVender.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jToggleButtonVender.setText("Vender");
+        jToggleButtonVender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButtonVenderActionPerformed(evt);
+            }
+        });
+
+        jToggleButtonFinalizar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jToggleButtonFinalizar.setText("Finalizar");
+        jToggleButtonFinalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButtonFinalizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -71,17 +93,17 @@ public class Venda extends javax.swing.JFrame {
                                 .addComponent(jTextFieldCampoPreçoTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
                                 .addGap(296, 296, 296)
                                 .addComponent(jToggleButtonFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextFieldCampoPreço, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelNomeDoProduto)
-                                    .addComponent(jLabelPreçoTotal)
-                                    .addComponent(jTextFieldCampoNomeDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabelPreço)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jToggleButtonVender, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jToggleButtonVender, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldCampoPreço, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelNomeDoProduto)
+                                    .addComponent(jLabelPreçoTotal)
+                                    .addComponent(jTextFieldCampoNomeDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(69, 69, 69))
         );
         jPanel1Layout.setVerticalGroup(
@@ -122,8 +144,28 @@ public class Venda extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(616, 439));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextFieldCampoNomeDoProdutoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCampoNomeDoProdutoKeyPressed
+       if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER){
+         ProdutoDAO dao = new ProdutoDAO();
+         dao.Pesquisar(jTextFieldCampoPreço, jTextFieldCampoNomeDoProduto.getText());
+         
+       }
+    }//GEN-LAST:event_jTextFieldCampoNomeDoProdutoKeyPressed
+
+    private void jToggleButtonVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonVenderActionPerformed
+      ProdutoDAO dao = new ProdutoDAO();
+      dao.vender(jTextFieldCampoPreço, jTextFieldCampoPreçoTotal);
+    }//GEN-LAST:event_jToggleButtonVenderActionPerformed
+
+    private void jToggleButtonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonFinalizarActionPerformed
+        Login obj = new Login();
+        obj.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jToggleButtonFinalizarActionPerformed
 
     /**
      * @param args the command line arguments
